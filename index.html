@@ -169,17 +169,15 @@
       <ul>
         <li>History carries <b class="n">34&ndash;55%</b> of next-output predictability in
         LLaMA&#8209;3&#8209;8B (lowest bootstrap bound <b class="n">+28%</b>),
-        <b class="n">4&ndash;7%</b> in Gemma&#8209;2&#8209;9B, and less again in Mistral&#8209;7B
-        &mdash; three architectures, one protocol, three different answers.</li>
+        <b class="n">4&ndash;7%</b> in Gemma&#8209;2&#8209;9B, and in Mistral&#8209;7B it goes
+        <b>negative</b> &mdash; <b class="n">+8%</b> falling to <b class="n">&minus;21%</b>, its
+        own history costing it held-out loss &mdash; three architectures, one protocol, three
+        genuinely different answers.</li>
 
         <li>Showed the estimator's null is <b>negative</b>
-        (<b class="n">&minus;0.046 to &minus;0.074</b> nats), not zero. Reporting against zero
-        inverts the conclusion for two of the three families. The most transferable thing I have
-        found.</li>
-
-        <li>A system prompt instructing the model to disengage cuts history-dependence roughly
-        fourfold on byte-identical questions &mdash; <b class="n">46%</b> to <b class="n">12%</b>,
-        non-overlapping intervals.</li>
+        (<b class="n">&minus;0.018 to &minus;0.074</b> nats across all fifteen cells), not zero.
+        Reporting against zero inverts the conclusion for two of the three families. The most
+        transferable thing I have found.</li>
 
         <li>Retracted the project's original result after my own control falsified it: the
         three-channel decomposition of the next hidden state is zero by construction, and a
