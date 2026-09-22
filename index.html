@@ -1,0 +1,434 @@
+<title>Kevin Vaillancourt</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --ground:   #fbfbfc;
+    --panel:    #f3f4f6;
+    --ink:      #14181d;
+    --muted:    #5a6470;
+    --faint:    #838d99;
+    --rule:     #e2e5e9;
+    --accent:   #1f5f5b;
+    --strike:   #8a4b3c;
+    --serif: "Spectral", Georgia, "Times New Roman", serif;
+    --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0e1114;
+      --panel:  #161b20;
+      --ink:    #e8ebee;
+      --muted:  #96a0ab;
+      --faint:  #77828e;
+      --rule:   #232b33;
+      --accent: #63bab2;
+      --strike: #c98e7d;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #0e1114;
+    --panel:  #161b20;
+    --ink:    #e8ebee;
+    --muted:  #96a0ab;
+    --faint:  #77828e;
+    --rule:   #232b33;
+    --accent: #63bab2;
+    --strike: #c98e7d;
+  }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 16.5px;
+    line-height: 1.58;
+    padding-inline: 20px;
+    padding-block: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 44rem; margin: 0 auto; padding-block: 56px 72px; }
+
+  /* ---- masthead ---- */
+  .name {
+    font-size: clamp(2rem, 7vw, 2.9rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .contact {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-top: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+  }
+  .contact a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; }
+  .contact a:hover, .contact a:focus-visible { border-bottom-color: var(--accent); }
+
+  .standfirst {
+    margin-top: 26px;
+    font-size: 1.06rem;
+    color: var(--ink);
+    border-left: 2px solid var(--accent);
+    padding-left: 18px;
+  }
+  .standfirst p { margin: 0 0 0.8em; }
+  .standfirst p:last-child { margin-bottom: 0; }
+
+  /* ---- sections ---- */
+  section { margin-top: 46px; }
+  h2 {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--faint);
+    margin: 0 0 4px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .lede { color: var(--muted); font-size: 0.95rem; margin: 14px 0 0; }
+
+  .item { margin-top: 24px; }
+  .item h3 {
+    font-size: 1.04rem;
+    font-weight: 600;
+    margin: 0 0 4px;
+    line-height: 1.35;
+    text-wrap: balance;
+  }
+  .meta {
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    color: var(--faint);
+    margin: 0 0 8px;
+  }
+  .item p { margin: 0 0 0.7em; }
+  .item p:last-child { margin-bottom: 0; }
+
+  /* evidence line: the number and where it comes from */
+  .ev {
+    font-family: var(--mono);
+    font-size: 0.76rem;
+    line-height: 1.7;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    background: var(--panel);
+    border-radius: 3px;
+    padding: 9px 12px;
+    margin-top: 10px;
+  }
+  .ev b { color: var(--ink); font-weight: 500; }
+
+  /* the withdrawn block — part of the record, not hidden */
+  .withdrawn .item h3 { color: var(--strike); }
+  .withdrawn .item h3 span {
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--strike);
+    border: 1px solid var(--strike);
+    border-radius: 2px;
+    padding: 2px 6px;
+    margin-right: 9px;
+    vertical-align: 0.15em;
+    white-space: nowrap;
+  }
+
+  ul.plain { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 11px; }
+  ul.plain li { padding-left: 17px; position: relative; }
+  ul.plain li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0.62em;
+    width: 6px; height: 1px;
+    background: var(--faint);
+  }
+
+  .kv { display: grid; grid-template-columns: 8.5rem 1fr; gap: 6px 18px; margin-top: 14px; }
+  .kv dt {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--faint);
+    padding-top: 0.32em;
+  }
+  .kv dd { margin: 0; }
+  @media (max-width: 560px) {
+    .kv { grid-template-columns: 1fr; gap: 2px 0; }
+    .kv dd { margin-bottom: 12px; }
+  }
+
+  a.ref { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  a.ref:hover, a.ref:focus-visible { border-bottom-color: var(--accent); }
+  code { font-family: var(--mono); font-size: 0.86em; }
+  em { font-style: italic; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+
+  footer {
+    margin-top: 52px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--faint);
+  }
+</style>
+
+<div class="wrap">
+
+  <header>
+    <h1 class="name">Kevin Vaillancourt</h1>
+    <div class="contact">
+      <span>Greater Sudbury, Ontario, Canada</span>
+      <span>KVSudbury@gmail.com</span>
+      <a href="https://orcid.org/0009-0006-7552-6367">ORCID 0009-0006-7552-6367</a>
+      <a href="https://github.com/Vee-industries">github.com/Vee-industries</a>
+      <span>Canadian citizen</span>
+    </div>
+
+    <div class="standfirst">
+      <p>Independent researcher. I build measurement apparatus for language models and
+      spend most of my time on one question: is the signal real, or is the instrument
+      producing it?</p>
+      <p>That question has cost me two results this year. Both were killed by controls I
+      designed and ran myself, and both are on this page.</p>
+    </div>
+  </header>
+
+  <section>
+    <h2>Current work</h2>
+    <p class="lede">IOTA — an apparatus for measuring how much of what a language model says
+    next is explained by the conversation so far, rather than by the current prompt.
+    Sole investigator, January 2026 – present.
+    <a class="ref" href="https://github.com/Vee-industries/Iota-Code">github.com/Vee-industries/Iota-Code</a></p>
+
+    <div class="item">
+      <h3>History carries a large, architecture-dependent share of next-output predictability</h3>
+      <p><em>R</em> is the share of the total predictable information about the emitted token
+      supplied by the conversation history rather than the current prompt — a conditional
+      V-usable information ratio from held-out log-loss under conversation-grouped
+      cross-validation. The collection protocol holds the user prompt byte-identical at a given
+      (run, turn) across every trial and temperature, so the history term can be varied on its
+      own. Checked at 234 of 234 cells, no violations.</p>
+      <div class="ev">
+        LLaMA-3-8B <b>34.0–55.4%</b> across five temperatures, lowest bootstrap bound <b>+27.7%</b><br>
+        Gemma-2-9B <b>3.8–7.1%</b> &nbsp;·&nbsp; Mistral-7B-v0.3 <b>+7.9% to −20.7%</b><br>
+        Excess over permutation null at T0.6 — llama <b>+0.259</b>, gemma <b>+0.071</b>,
+        Mistral <b>+0.037</b> nats<br>
+        Conversation-cluster bootstrap, B = 300
+      </div>
+    </div>
+
+    <div class="item">
+      <h3>Zero is not the null for this estimator, and testing against zero inverts conclusions</h3>
+      <p>The predictive family cannot decline to use the history key, so a sparse key costs
+      held-out loss and the no-information expectation is <em>negative</em>. Measured against that
+      null instead of against zero, all three architectures are history-dependent and differ in
+      magnitude rather than in kind — including the cells where the point estimate is negative.
+      This is the finding I would most want someone else to take away.</p>
+      <div class="ev">
+        Permutation null <b>−0.046 to −0.074 nats</b>, not 0 · history permuted across
+        conversations within each (run, turn) stratum, with targets, prompt key, grouping and
+        both marginal terms held bit-identical
+      </div>
+    </div>
+
+    <div class="item">
+      <h3>A system prompt telling the model to disengage cuts its history-dependence fourfold</h3>
+      <p>Three runs share one user-prompt sequence and differ only in the system prompt —
+      neutral, cooperative, resistant. The resistant prompt ("deflect abstract questions, do not
+      elaborate") moves R by more than the bootstrap interval, on byte-identical questions.</p>
+      <div class="ev">
+        LLaMA T0.2 — neutral <b>46.0%</b> [38.6, 57.5] · cooperative <b>47.2%</b> [33.0, 60.0] ·
+        resistant <b>11.7%</b> [0.6, 20.9] &nbsp; → non-overlapping, 34-point gap
+      </div>
+    </div>
+
+    <div class="item">
+      <h3>The result survives open generation</h3>
+      <p>Every number above came from an enforced three-way token, which was the apparatus's
+      largest stated limitation. Re-collected the full LLaMA corpus with the enforcer off and the model
+      writing freely; it leads with a status word and continues, so one canonicaliser parses both.
+      The dropped rows were not missing at random — 37.6% of one run against near-zero elsewhere —
+      so that run is excluded and the rest parses at 99.3–100%.</p>
+      <div class="ev">
+        Free generation <b>31.3 / 40.3 / 40.2 / 35.9 / 48.5%</b> against enforced
+        <b>36.4 / 46.1 / 55.6 / 46.6 / 53.5%</b><br>
+        All five intervals overlap · lowest free-generation bound <b>+23.7%</b> ·
+        free generation reads lower at all five, no single interval separates
+      </div>
+    </div>
+
+    <div class="item">
+      <h3>Standard attribution credit can go to a control block with negative held-out value</h3>
+      <p>Completing the 2 × 2 of {model} × {conversation} showed a donor control block reducing
+      cross-validated <em>R</em>² whenever it was actually held out, while Shapley assigned it a
+      sixth of the total — credit accrued in the subsets that lacked the real input block, where
+      it stood in for one.</p>
+      <div class="ev">
+        Unique held-out contribution <b>negative in 14 of 14 cells</b> (−0.0002 to −0.0160) ·
+        Shapley share <b>12.9–20.8%</b> of the same total
+      </div>
+    </div>
+  </section>
+
+  <section class="withdrawn">
+    <h2>Withdrawn</h2>
+    <p class="lede">Both of these were mine, both were load-bearing, and both were killed by a
+    control that was already inside the experiment. I would rather a reviewer read them here than
+    find them in an old PDF.</p>
+
+    <div class="item">
+      <h3><span>Withdrawn</span>A three-channel decomposition of the model's next internal state</h3>
+      <p>The original project measured <em>E + C + R</em> over hidden states, with <em>R</em> as
+      the share carried forward from the model's own prior state. It is identically zero by
+      construction: a transformer re-prefills the entire transcript every turn and carries nothing
+      between them. My own no-history control settled it — with history dropped from the input,
+      two cohorts that otherwise differ produce byte-identical hidden states. I retracted the
+      finding, dropped the constraint channel, and redefined the measurand onto the output, where
+      it survives.</p>
+      <div class="ev">
+        With history — across-cohort cosine distance <b>0.0020141</b><br>
+        History dropped — <b>0.0</b>, byte-identical
+      </div>
+    </div>
+
+    <div class="item">
+      <h3><span>Withdrawn</span>An activation-patching result showing transplanted state beats random noise</h3>
+      <p>Donor hidden states written into the residual stream during generation changed the
+      emitted token far more often than noise did — z from 2.4 to 24.6 at five of six
+      temperatures. The comparison was wrong. The real arm was entirely multi-layer; the noise arm
+      was four-fifths single-layer, and one of those single-layer conditions is inert at 0 of 1300.
+      That one condition generates the entire effect. Run 0017 already contained a properly
+      matched noise arm, and against it the effect vanishes. My own preregistration had required
+      matched layers. The analysis did not honour it.</p>
+      <div class="ev">
+        At matched layers — z = <b>+0.76, −0.04, −0.52, −0.12, −1.13</b> across T0.2–T1.0<br>
+        Noise numerically higher at four of five · both arms at ceiling at T0.0
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Publications</h2>
+
+    <div class="item">
+      <h3>Formal Properties of the Structural Remainder R: An Information-Theoretic
+      Measurement Target</h3>
+      <p class="meta">Zenodo · April 2026 · CC BY 4.0 ·
+        <a class="ref" href="https://doi.org/10.5281/zenodo.19656944">10.5281/zenodo.19656944</a></p>
+      <p>Boundedness on [0, 1], invariance under bijective reparameterisation, non-triviality via
+      a closed-form one-bit cache model, identifiability conditions by regime, a closed form in
+      stable linear-Gaussian systems, and monotonicity under two specific erasure operations, with
+      the general class left open. Scoped throughout to <em>systems with persistent internal
+      state</em> — state-space models, recurrent networks — and it makes no claim about
+      transformers. The mathematics is unaffected by the withdrawal above; what changed is that
+      full-attention transformers turned out to be the wrong architecture to point it at.</p>
+    </div>
+
+    <div class="item">
+      <h3>Decomposing Gait Robustness in Demonstration-Free Humanoid Locomotion: A Predictive
+      Diagnostic for ROM-Guided Reinforcement Learning</h3>
+      <p class="meta">Zenodo preprint · April 2026 · CC BY 4.0 ·
+        <a class="ref" href="https://doi.org/10.5281/zenodo.19474028">10.5281/zenodo.19474028</a></p>
+      <p>Four preregistered diagnostic experiments with falsification criteria, applying the same
+      decomposition to locomotion policies — discriminator ablation across training, sensory
+      perturbation at convergence, switching delay under commanded speed change, and an MLP versus
+      LSTM comparison. Proposal only; no experimental results. Written for, and shared with,
+      Dr. Meng Cheng Lau at Laurentian University, whose ROM-guided RL framework it builds on. A
+      recurrent policy carries a hidden state by construction, which makes it one of the
+      architectures where the measure above is well posed.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Other work</h2>
+
+    <div class="item">
+      <h3>Detector Memory Glove — a stateful severity-scoring layer for intrusion detection</h3>
+      <p class="meta">Apart Research / CeSIA AI Incident Response Sprint · September 2026 ·
+        <a class="ref" href="https://github.com/Vee-industries/detector_memory_glove">github.com/Vee-industries/detector_memory_glove</a></p>
+      <p>A per-entity exponential moving average scored alongside the current event, on a
+      synthetic testbed calibrated to the published timing and phase structure of the July 2026
+      Hugging Face agent intrusion. Includes a diagnostic that locates predictive information in
+      the event stream relative to an external risk label, and an honest account of when the
+      memory advantage is real and when it is an artifact of warm-up.</p>
+      <div class="ev">
+        120-hour review window, false alarms held to 5% of benign windows —
+        detection <b>92%</b> with memory against <b>13%</b> without<br>
+        10,000 attack campaigns · 40,000 benign entities · bootstrap B = 2000
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Methods</h2>
+    <dl class="kv">
+      <dt>Estimation</dt>
+      <dd>Conditional V-usable information from held-out log-loss; grouped cross-validation;
+      conversation-cluster bootstrap; permutation nulls; Theil's U as the normalised share.
+      Denominator floors, because four of this project's retractions died by normalising against a
+      quantity that shrinks.</dd>
+
+      <dt>Controls</dt>
+      <dd>Preregistration with the decision rule fixed before the run, including arms that came
+      back null and are reported as null. Length-matched scramble controls, a degradation ladder,
+      and a bitwise reproducibility floor across six independent model loads.</dd>
+
+      <dt>Calibration</dt>
+      <dd>Built a six-system synthetic calibration suite with analytic ground truth — closed-form
+      truth derivation, an exogeneity-violation sweep, and a deliberate negative control on purely
+      synergistic structure that the estimator failed and that I documented as a failure.</dd>
+
+      <dt>Interventions</dt>
+      <dd>Activation patching by forward hook into the residual stream, with the emitted token as
+      the outcome; layer-isolation sweeps; abliterated-versus-instruct contrasts.</dd>
+
+      <dt>Infrastructure</dt>
+      <dd>PyTorch, Transformers, NumPy, scikit-learn. 4-bit to FP16 quantisation via bitsandbytes;
+      Hugging Face ecosystem. The full three-family corpus — 6 runs × 13 turns × 40 trials × 5
+      temperatures — was collected on one 10 GB consumer GPU.</dd>
+
+      <dt>Practice</dt>
+      <dd>I specify the architecture, protocol and analysis, and direct the implementation through
+      AI tooling rather than typing it. Every number on this page reproduces from a script in a
+      public repository, and I check them against the files rather than against my notes.</dd>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Education and employment</h2>
+    <dl class="kv">
+      <dt>2021</dt>
+      <dd><strong>BSc, Interdisciplinary Science</strong>, Laurentian University. Quantitative
+      methods, systems analysis, probability and statistics, scientific computing.</dd>
+
+      <dt>2022 –</dt>
+      <dd><strong>Passport Officer</strong>, Service Canada. Currently on medical leave.
+      Secret clearance (Level II); CSIS security assessment, ten-year background review.</dd>
+
+      <dt>2017 – 2022</dt>
+      <dd>Canada Post.</dd>
+
+      <dt>Languages</dt>
+      <dd>English (native), French (working proficiency).</dd>
+    </dl>
+  </section>
+
+  <footer>
+    The apparatus, the controls and the measurement scripts are public at
+    <a class="ref" href="https://github.com/Vee-industries/Iota-Code">github.com/Vee-industries/Iota-Code</a>
+    under Apache-2.0. Every figure here comes from a script in it. Last revised September 2026.
+  </footer>
+
+</div>
