@@ -212,6 +212,38 @@
     font-size: 0.72rem;
     color: var(--faint);
   }
+
+  /* ---- print: the page is a CV, so it has to survive being printed ---- */
+  @media print {
+    :root {
+      --ground:#fff; --panel:#f2f3f5; --ink:#000; --muted:#333; --faint:#555;
+      --rule:#c8ccd1; --accent:#14504c; --strike:#7a3f31;
+    }
+    @page { size: letter; margin: 13mm 14mm; }
+    body { font-size: 9.6pt; line-height: 1.38; padding-inline: 0; }
+    .wrap { max-width: none; padding-block: 0; }
+    .name { font-size: 20pt; }
+    .contact { font-size: 7.4pt; gap: 3px 11px; margin-top: 8px; }
+    .standfirst { margin-top: 12px; font-size: 10pt; padding-left: 11px; }
+    .repos { margin-top: 12px; padding: 9px 11px; }
+    .repos a.repo { font-size: 7.8pt; }
+    .repos span { font-size: 8.8pt; }
+    .repos ul { gap: 5px; }
+    section { margin-top: 17px; }
+    h2 { font-size: 7.4pt; padding-bottom: 4px; }
+    .lede { font-size: 8.8pt; margin-top: 7px; }
+    .item { margin-top: 11px; break-inside: avoid; page-break-inside: avoid; }
+    .item h3 { font-size: 10pt; margin-bottom: 2px; }
+    .item p { margin-bottom: 0.4em; }
+    .meta { font-size: 7.6pt; margin-bottom: 4px; }
+    .ev { font-size: 7.4pt; line-height: 1.5; padding: 6px 8px; margin-top: 6px; }
+    .kv { gap: 4px 14px; margin-top: 8px; }
+    .kv dt { font-size: 7.4pt; }
+    .kv dd { font-size: 9.4pt; }
+    footer { margin-top: 16px; padding-top: 8px; font-size: 7.4pt; }
+    a, a.ref, a.repo { color: var(--accent); border-bottom: none; }
+    h2, h3 { break-after: avoid; page-break-after: avoid; }
+  }
 </style>
 
 <div class="wrap">
