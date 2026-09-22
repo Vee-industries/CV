@@ -174,6 +174,36 @@
   em { font-style: italic; }
   :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
 
+  .repos {
+    margin-top: 26px;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 15px 17px;
+  }
+  .repos-head {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--faint);
+    margin-bottom: 11px;
+  }
+  .repos ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+  .repos li { display: grid; grid-template-columns: 13.5rem 1fr; gap: 4px 16px; align-items: baseline; }
+  .repos a.repo {
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    word-break: break-word;
+  }
+  .repos a.repo:hover, .repos a.repo:focus-visible { border-bottom-color: var(--accent); }
+  .repos span { font-size: 0.92rem; color: var(--muted); }
+  @media (max-width: 560px) {
+    .repos li { grid-template-columns: 1fr; }
+  }
+
   footer {
     margin-top: 52px;
     padding-top: 16px;
@@ -202,6 +232,22 @@
       producing it?</p>
       <p>That question has cost me two results this year. Both were killed by controls I
       designed and ran myself, and both are on this page.</p>
+    </div>
+
+    <div class="repos">
+      <div class="repos-head">Code &mdash; <a class="repo" href="https://github.com/Vee-industries">github.com/Vee-industries</a></div>
+      <ul>
+        <li>
+          <a class="repo" href="https://github.com/Vee-industries/Iota-Code">Iota-Code</a>
+          <span>The apparatus, the preregistered controls, and the corpus every number on this
+          page comes from. The measurement scripts run from a clone with no GPU. Apache&#8209;2.0.</span>
+        </li>
+        <li>
+          <a class="repo" href="https://github.com/Vee-industries/detector_memory_glove">detector_memory_glove</a>
+          <span>The stateful detector layer, its synthetic testbed and the bootstrap intervals
+          below. Apache&#8209;2.0.</span>
+        </li>
+      </ul>
     </div>
   </header>
 
